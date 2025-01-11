@@ -8,6 +8,9 @@ export default defineConfig({
 	test: {
 		environment: 'jsdom',
 		setupFiles: ['./vitest-setup.ts'],
-		include: ['src/**/*.{test,spec}.{js,ts}']
+		include: ['src/**/*.test.{js,ts}']
+	},
+	esbuild: {
+		target: 'esnext'
 	}
 });
