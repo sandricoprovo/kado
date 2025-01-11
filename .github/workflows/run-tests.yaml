@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./github/actions/test-setup
+      - uses: ./.github/actions/test-setup
       - run: pnpm install
       - run: pnpm test:unit
 
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./github/actions/test-setup
+      - uses: ./.github/actions/test-setup
       - run: pnpm install
       - run: pnpm playwright install --with-deps
       - run: pnpm test:integration
