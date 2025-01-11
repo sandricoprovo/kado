@@ -15,7 +15,7 @@ jobs:
       - name: 'Setup Environment'
         uses: ./.github/actions/setup-test-environment
 
-      - name: 'Install pnpm'
+      - name: 'Install Dependencies'
         run: pnpm install
 
       - name: 'Run Unit Tests'
@@ -31,7 +31,7 @@ jobs:
       - name: 'Setup Environment'
         uses: ./.github/actions/setup-test-environment
 
-      - name: 'Install pnpm'
+      - name: 'Install Dependencies'
         run: pnpm install
 
       - name: 'Install Playwright'
