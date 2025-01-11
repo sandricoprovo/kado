@@ -5,24 +5,21 @@ on:
     branches: [main, dev]
 
 jobs:
-  call_setup_test_env:
-    uses: ./.github/workflows/_setup-test-env.yaml
-
   run_unit_tests:
     name: Run Unit Tests
-    needs: ['call_setup_test_env']
     runs-on: ubuntu-latest
 
     steps:
+      - uses: ./.github/workflows/_setup-test-env.yaml
       - run: pnpm install
       - run: pnpm test:unit
 
   run_e2e_tests:
     name: Run E2E Tests
-    needs: ['call_setup_test_env']
     runs-on: ubuntu-latest
 
     steps:
+      - uses: ./.github/workflows/_setup-test-env.yaml
       - run: pnpm install
       - run: pnpm playwright install --with-deps
       - run: pnpm test:integration
