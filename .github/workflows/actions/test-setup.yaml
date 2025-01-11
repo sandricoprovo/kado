@@ -1,0 +1,17 @@
+name: Setup Test Environment
+description: Setup steps for the projects test runners.
+runs:
+  using: 'composite'
+  steps:
+    - name: Check out Git repository
+      uses: actions/checkout@v4
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
