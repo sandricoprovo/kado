@@ -1,9 +1,10 @@
-name: Setup Test Runner
+name: Setup Test Environment
 
-on: workflow_call
+on:
+  workflow_call:
 
 jobs:
-  test_runner_setup:
+  setup_test_env:
     name: Run Unit Tests
     runs-on: ubuntu-latest
 
