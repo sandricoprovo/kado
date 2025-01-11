@@ -1,0 +1,24 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  run_unit_tests:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/workflows/_setup-test-runner.yaml
+      - run: pnpm install
+      - run: pnpm test:unit
+  run_e2e_tests:
+    name: Run E2E Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/workflows/_setup-test-runner.yaml
+      - run: pnpm install
+      - run: pnpm playwright install --with-deps
+      - run: pnpm test:integration
