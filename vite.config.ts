@@ -6,9 +6,15 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 export default defineConfig({
 	plugins: [vitePreprocess(), sveltekit(), svelteTesting()],
 	test: {
-		environment: 'jsdom',
+		globals: true,
+		environment: 'node',
 		setupFiles: ['./vitest-setup.ts'],
-		include: ['src/**/*.test.{js,ts}']
+		include: ['src/**/*.test.{js,ts}'],
+		deps: {
+			optimizer: {
+				include: ['@asamuzakjp/css-color'] // Include specific ESM dependencies
+			}
+		}
 	},
 	esbuild: {
 		target: 'esnext'
