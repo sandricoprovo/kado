@@ -3,8 +3,7 @@ description: Setup steps for the projects test runners.
 runs:
   using: 'composite'
   steps:
-    - name: Check out Git repository
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
     - name: Install pnpm
       uses: pnpm/action-setup@v4
