@@ -11,9 +11,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-test-environment
-      - run: pnpm install
-      - run: pnpm test:unit
+
+      - name: 'Setup Environment'
+        uses: ./.github/actions/setup-test-environment
+
+      - name: 'Install pnpm'
+        run: pnpm install
+
+      - name: 'Run Unit Tests'
+        run: pnpm test:unit
 
   run_e2e_tests:
     name: Run E2E Tests
@@ -21,7 +27,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-test-environment
-      - run: pnpm install
-      - run: pnpm playwright install --with-deps
-      - run: pnpm test:integration
+
+      - name: 'Setup Environment'
+        uses: ./.github/actions/setup-test-environment
+
+      - name: 'Install pnpm'
+        run: pnpm install
+
+      - name: 'Install Playwright'
+        run: pnpm playwright install --with-deps
+
+      - name: 'Run e2e Tests'
+        run: pnpm test:e2e
