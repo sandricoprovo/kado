@@ -63,7 +63,5 @@ class CardsService {
 	// TODO: create a validate deck method
 }
 
-// const cardsService = CardsService.init(CARD_COUNT, RANKS, SUITS);
-
 export default CardsService.init(CARD_COUNT, RANKS, SUITS);
 export { CardsService as service };
