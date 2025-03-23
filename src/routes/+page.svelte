@@ -4,6 +4,7 @@
 	import Button from '$lib/components/common/Buttons/Button.svelte';
 	import { CardGame } from '$lib/state/CardGame.svelte.js';
 	import Card from '$lib/components/Card/Card.svelte';
+	import DrawnTable from '$lib/components/DrawnTable/DrawnTable.svelte';
 
 	const game = new CardGame();
 
@@ -64,16 +65,13 @@
 	</section>
 
 	<section class="drawn">
-		{#if game.cardsDrawn.length > 0}
-			<h2>Cards Drawn {game.cardsDrawn.length}</h2>
-			<ul class="drawn_list">
-				{#each game.cardsDrawn as card}
-					<li>{`${card.rank} of ${card.label}`}</li>
-				{/each}
-			</ul>
-		{:else}
-			<h2>Cards Drawn</h2>
-		{/if}
+		<!-- <h2>Cards Drawn: {game?.cardsDrawn?.length ?? 0}</h2> -->
+		<!-- {#if game.cardsDrawn.length > 0} -->
+		<DrawnTable
+			title={`Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
+			drawnCards={game.cardsDrawn}
+		/>
+		<!-- {/if} -->
 	</section>
 </main>
 
@@ -93,7 +91,6 @@
 		@media screen and (width > 820px) {
 			& {
 				--cols: repeat(2, 1fr);
-				border: 2px solid red;
 				align-items: center;
 			}
 		}
@@ -128,14 +125,5 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 8px;
-	}
-
-	.drawn_list {
-		overflow-y: scroll;
-		width: 100%;
-
-		& > li {
-			list-style: none;
-		}
 	}
 </style>

@@ -18,6 +18,7 @@ export class CardGame {
 		const drawnCard = this.deck.shift();
 		if (!drawnCard) return;
 
+		this.cardsDrawn.unshift(drawnCard);
 		this.currentCard = drawnCard;
 	};
 
@@ -27,10 +28,7 @@ export class CardGame {
 		const drawnCard = this.deck.shift();
 
 		if (!drawnCard) return;
-
-		if (this.currentCard) {
-			this.cardsDrawn.unshift(this.currentCard);
-		}
+		this.cardsDrawn.unshift(drawnCard);
 
 		this.currentCard = drawnCard;
 	};
