@@ -2,6 +2,8 @@
     Main CSS Entry Point
 */
 
-@layer reset;
+@layer reset, variables, base;
 
 @import './reset.css';
+@import './variables.css';
+@import './base.css';

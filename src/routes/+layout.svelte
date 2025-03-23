@@ -1,14 +1,27 @@
 <script lang="ts">
 	import '../styles/main.css';
+	import Header from '$lib/components/common/Header/Header.svelte';
 
 	const { children } = $props();
 </script>
 
-<div>
-	<header></header>
+<div class="layout">
+	<Header />
 	{@render children?.()}
-	<footer></footer>
+	<footer>
+		<p>Footer</p>
+		a
+	</footer>
 </div>
 
 <style lang="postcss">
+	.layout {
+		border: 2px solid pink;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto 1fr auto;
+		justify-content: center;
+		text-align: center;
+		min-height: 100vh;
+	}
 </style>
