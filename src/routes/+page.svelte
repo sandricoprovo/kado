@@ -5,6 +5,7 @@
 	import { CardGame } from '$lib/state/CardGame.svelte.js';
 	import Card from '$lib/components/Card/Card.svelte';
 	import DrawnTable from '$lib/components/DrawnTable/DrawnTable.svelte';
+	import EmptyCard from '$lib/components/Card/EmptyCard.svelte';
 
 	const game = new CardGame();
 
@@ -47,8 +48,13 @@
 				<Card rank={game.currentCard.rank} suit={game.currentCard.suit} />
 			</div>
 		{:else}
-			<h1 class="header">Draw</h1>
-			<!-- TODO: add empty card -->
+			<section>
+				<h1 class="header">
+					<span>Welcome!</span>
+				</h1>
+				<p class="copy">Pick an ordered or shuffled deck to get started.</p>
+			</section>
+			<EmptyCard />
 		{/if}
 
 		{#if game.isDirty}

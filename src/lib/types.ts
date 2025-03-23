@@ -1,9 +1,13 @@
+import type { Snippet } from 'svelte';
+
+// RESPONSES ===
 export type Error = {
 	message: string;
 };
 export type SuccessTuple<T> = [T, null];
 export type ErrorTuple = [null, Error];
 
+// CARDS ===
 export type Ranks =
 	| '2'
 	| '3'
@@ -33,3 +37,6 @@ export type Card = {
 	colorScheme: Suit['colorScheme'];
 };
 export type Deck = Card[];
+
+// HELPERS ===
+export type Children = Snippet<[]>;
