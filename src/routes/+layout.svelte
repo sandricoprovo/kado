@@ -10,7 +10,6 @@
 	{@render children?.()}
 	<footer>
 		<p>Footer</p>
-		a
 	</footer>
 </div>
 

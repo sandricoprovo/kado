@@ -8,7 +8,7 @@
 	}
 
 	.content {
-		font-weight: 400;
+		font-variation-settings: 'wght' 700;
 		font-size: 12px;
 	}
 </style>
