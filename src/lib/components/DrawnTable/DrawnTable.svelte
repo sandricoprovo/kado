@@ -1,5 +1,12 @@
 <script lang="ts">
-	let { title, drawnCards } = $props();
+	import type { Card } from '$lib/types';
+
+	type DrawnTableProps = {
+		title: string;
+		drawnCards: Card[];
+	};
+
+	let { title, drawnCards }: DrawnTableProps = $props();
 </script>
 
 <figure class="table-container">

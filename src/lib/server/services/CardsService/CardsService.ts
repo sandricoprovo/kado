@@ -1,5 +1,4 @@
-import type { ErrorTuple, SuccessTuple } from '$lib/types';
-import type { Card, Deck, Suit } from './types';
+import type { ErrorTuple, SuccessTuple, Card, Deck, Suit } from '$lib/types';
 import { CARD_COUNT, RANKS, SUITS } from './constants';
 
 class Service {
@@ -30,7 +29,7 @@ class Service {
 		return {
 			suit,
 			colorScheme,
-			rank: this.ranks[index % 13],
+			rank: this.ranks[index % 13] as Card['rank'],
 			label: `${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
 		};
 	}

@@ -58,20 +58,17 @@
 			</section>
 		{:else}
 			<form method="POST" use:enhance={handleDeckFormSubmit}>
-				<Button formaction="?/getDeck" type="submit">Get New Deck</Button>
+				<Button formaction="?/getDeck" type="submit">Get Ordered Deck</Button>
 				<Button formaction="?/getDeck&shuffled=true" type="submit">Get Shuffled Deck</Button>
 			</form>
 		{/if}
 	</section>
 
 	<section class="drawn">
-		<!-- <h2>Cards Drawn: {game?.cardsDrawn?.length ?? 0}</h2> -->
-		<!-- {#if game.cardsDrawn.length > 0} -->
 		<DrawnTable
 			title={`Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
 			drawnCards={game.cardsDrawn}
 		/>
-		<!-- {/if} -->
 	</section>
 </main>
 
