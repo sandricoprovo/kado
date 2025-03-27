@@ -72,7 +72,7 @@
 
 	<section class="drawn">
 		<DrawnTable
-			title={`Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
+			title={`# Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
 			drawnCards={game.cardsDrawn}
 		/>
 	</section>
@@ -90,6 +90,7 @@
 		justify-content: center;
 		gap: 20px;
 		width: 80vw;
+		margin-bottom: 40px;
 
 		@media screen and (width > 820px) {
 			& {
