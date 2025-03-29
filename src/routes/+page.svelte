@@ -6,6 +6,7 @@
 	import Card from '$lib/components/Card/Card.svelte';
 	import DrawnTable from '$lib/components/DrawnTable/DrawnTable.svelte';
 	import EmptyCard from '$lib/components/Card/EmptyCard.svelte';
+	import Typography from '$lib/components/common/Typography.svelte';
 
 	const game = new CardGame();
 
@@ -32,27 +33,25 @@
 </script>
 
 <main class="main">
-	<section class="controls">
+	<section class="card-area">
 		{#if game.currentCard}
 			<section>
-				<h1 class="header">
-					<span>{game.currentCard.rank} of {game.currentCard.label}</span>
-				</h1>
-				{#if game.cardsRemaining >= 1}
-					<p class="copy">Cards Remaining: {game.cardsRemaining}</p>
-				{:else}
-					<p class="copy">No cards Left / {game.cardsRemaining} Remaining</p>
-				{/if}
+				<Typography as="h1" weight="bold">
+					{game.currentCard.rank} of {game.currentCard.label}
+				</Typography>
+				<Typography>
+					{#if game.cardsRemaining >= 1}
+						Cards Remaining: {game.cardsRemaining}
+					{:else}
+						No cards Left / {game.cardsRemaining} Remaining
+					{/if}
+				</Typography>
 			</section>
-			<div class="cards-container">
-				<Card rank={game.currentCard.rank} suit={game.currentCard.suit} />
-			</div>
+			<Card rank={game.currentCard.rank} suit={game.currentCard.suit} />
 		{:else}
 			<section>
-				<h1 class="header">
-					<span>Welcome!</span>
-				</h1>
-				<p class="copy">Pick an ordered or shuffled deck to get started.</p>
+				<Typography as="h1" weight="bold">Welcome!</Typography>
+				<Typography>Pick an ordered or shuffled deck to get started.</Typography>
 			</section>
 			<EmptyCard />
 		{/if}
@@ -70,7 +69,7 @@
 		{/if}
 	</section>
 
-	<section class="drawn">
+	<section class="drawn-cards">
 		<DrawnTable
 			title={`# Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
 			drawnCards={game.cardsDrawn}
@@ -100,16 +99,7 @@
 		}
 	}
 
-	.header {
-		font-weight: 700;
-		font-size: 49px;
-	}
-
-	.copy {
-		font-size: 14px;
-	}
-
-	.controls {
+	.card-area {
 		min-height: 600px;
 		display: flex;
 		flex-direction: column;
@@ -123,7 +113,7 @@
 		}
 	}
 
-	.drawn {
+	.drawn-cards {
 		max-height: 300px;
 		display: flex;
 		flex-direction: column;
