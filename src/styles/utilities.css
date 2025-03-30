@@ -43,4 +43,11 @@
 	.fvs-700 {
 		font-variation-settings: var(--fw-700);
 	}
+
+	/* Layout */
+	.sticky {
+		position: sticky;
+		top: 0;
+		background: inherit;
+	}
 }

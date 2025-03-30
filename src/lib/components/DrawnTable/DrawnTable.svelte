@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Card } from '$lib/types';
+	import { TableRow, TableHead } from './elements';
 
 	type DrawnTableProps = {
 		title: string;
@@ -13,20 +14,22 @@
 	<figure class="table-container">
 		<table>
 			<thead>
-				<tr>
-					<th class="table-row--top" colspan="2">{title}</th>
-				</tr>
-				<tr>
-					<th>Name</th>
-					<th>Suit</th>
-				</tr>
+				<TableRow>
+					<TableHead class="h5 fvs-600 table__header sticky" colspan={2}>
+						{title}
+					</TableHead>
+				</TableRow>
+				<TableRow>
+					<TableHead class="fvs-500 sticky">Name</TableHead>
+					<TableHead class="fvs-500 sticky">Suit</TableHead>
+				</TableRow>
 			</thead>
 			<tbody>
 				{#each drawnCards as card}
-					<tr>
+					<TableRow>
 						<td>{card.rank}</td>
 						<td>{card.label}</td>
-					</tr>
+					</TableRow>
 				{/each}
 			</tbody>
 		</table>
@@ -36,6 +39,11 @@
 <style lang="postcss">
 	article {
 		width: 100%;
+		max-height: 300px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 8px;
 	}
 
 	.table-container {
@@ -49,31 +57,33 @@
 		text-align: center;
 	}
 
-	.table-container th,
-	.table-container td {
+	:global(.table-container th, .table-container td) {
 		text-align: center;
 		padding: 12px 24px;
 	}
 
-	.table-row--top {
-		z-index: 10;
+	:global(.table-container *) {
+		background-color: white;
+
+		& > th,
+		& > td {
+			padding: 8px;
+			text-align: center;
+			border-bottom: 1px solid #ddd;
+		}
+
+		& > th {
+			border: none;
+		}
+
+		& > th,
+		& > tr {
+			background-color: lightgrey;
+		}
 	}
 
 	table {
 		width: 100%;
 		border-collapse: collapse;
-	}
-
-	th,
-	td {
-		padding: 8px;
-		text-align: center;
-		border-bottom: 1px solid #ddd;
-	}
-
-	th {
-		position: sticky;
-		top: 0;
-		background: white;
 	}
 </style>

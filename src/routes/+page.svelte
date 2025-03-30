@@ -36,7 +36,7 @@
 	<section class="card-area">
 		{#if game.currentCard}
 			<section>
-				<Typography as="h1" weight="bold">
+				<Typography as="h2" weight="bold">
 					{game.currentCard.rank} of {game.currentCard.label}
 				</Typography>
 				<Typography>
@@ -50,15 +50,14 @@
 			<Card rank={game.currentCard.rank} suit={game.currentCard.suit} />
 		{:else}
 			<section>
-				<Typography as="h1" weight="bold">Welcome!</Typography>
+				<Typography as="h2" weight="bold">Welcome!</Typography>
 				<Typography>Pick an ordered or shuffled deck to get started.</Typography>
 			</section>
 			<EmptyCard />
 		{/if}
-
 		{#if game.isDirty}
 			<section>
-				<Button type="button" onclick={game.drawCard}>Draw</Button>
+				<Button onclick={game.drawCard}>Draw</Button>
 				<Button onclick={handleGameReset}>Reset</Button>
 			</section>
 		{:else}
@@ -68,13 +67,10 @@
 			</form>
 		{/if}
 	</section>
-
-	<section class="drawn-cards">
-		<DrawnTable
-			title={`# Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
-			drawnCards={game.cardsDrawn}
-		/>
-	</section>
+	<DrawnTable
+		title={`# Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
+		drawnCards={game.cardsDrawn}
+	/>
 </main>
 
 <style lang="postcss">
@@ -111,13 +107,5 @@
 				min-height: auto;
 			}
 		}
-	}
-
-	.drawn-cards {
-		max-height: 300px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 8px;
 	}
 </style>
