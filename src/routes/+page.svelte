@@ -7,6 +7,7 @@
 	import DrawnTable from '$lib/components/DrawnTable/DrawnTable.svelte';
 	import EmptyCard from '$lib/components/Card/EmptyCard.svelte';
 	import Typography from '$lib/components/common/Typography.svelte';
+	import ButtonGroup from '$lib/components/common/Buttons/ButtonGroup.svelte';
 
 	const game = new CardGame();
 
@@ -51,19 +52,21 @@
 		{:else}
 			<section>
 				<Typography as="h2" weight="bold">Welcome!</Typography>
-				<Typography>Pick an ordered or shuffled deck to get started.</Typography>
+				<Typography>Choose an ordered or shuffled deck to begin.</Typography>
 			</section>
 			<EmptyCard />
 		{/if}
 		{#if game.isDirty}
-			<section>
-				<Button onclick={game.drawCard}>Draw</Button>
-				<Button onclick={handleGameReset}>Reset</Button>
-			</section>
+			<ButtonGroup>
+				<Button onclick={handleGameReset}>New Game</Button>
+				<Button onclick={game.drawCard}>Draw Card</Button>
+			</ButtonGroup>
 		{:else}
-			<form method="POST" use:enhance={handleDeckFormSubmit}>
-				<Button formaction="?/getDeck" type="submit">Get Ordered Deck</Button>
-				<Button formaction="?/getDeck&shuffled=true" type="submit">Get Shuffled Deck</Button>
+			<form class="form" method="POST" use:enhance={handleDeckFormSubmit}>
+				<ButtonGroup>
+					<Button formaction="?/getDeck" type="submit">Start New Game</Button>
+					<Button formaction="?/getDeck&shuffled=true" type="submit">Shuffle & Start</Button>
+				</ButtonGroup>
 			</form>
 		{/if}
 	</section>
@@ -76,6 +79,7 @@
 <style lang="postcss">
 	.main {
 		--cols: 1fr;
+		--gap: var(--space-400);
 
 		margin: 0 auto;
 		container-type: inline-size;
@@ -83,9 +87,9 @@
 		display: grid;
 		grid-template-columns: var(--cols);
 		justify-content: center;
-		gap: 20px;
+		gap: var(--gap);
 		width: 80vw;
-		margin-bottom: 40px;
+		margin-bottom: var(--gap);
 
 		@media screen and (width > 820px) {
 			& {
@@ -100,12 +104,17 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 20px;
+		gap: var(--gap);
 
 		@media screen and (width > 820px) {
 			& {
 				min-height: auto;
 			}
 		}
+	}
+
+	.form {
+		width: 100%;
+		max-width: 500px;
 	}
 </style>

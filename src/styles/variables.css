@@ -12,33 +12,33 @@
 		--fw-700: 'wght' 700;
 
 		/* COLOURS ========== */
-		--primary: #000;
-		--accent: #000;
+		--primary: #1f1f1f;
+		--accent: #1f1f1f;
 
-		--fg: #000000;
-		--fg-disabled: #000000;
-		--fg-subtle: #000000;
-		--fg-normal: #000000;
-		--fg-muted: #000000;
-		--fg-strong: #000000;
+		--fg: #1f1f1f;
+		--fg-disabled: #1f1f1f;
+		--fg-subtle: #1f1f1f;
+		--fg-normal: #1f1f1f;
+		--fg-muted: #1f1f1f;
+		--fg-strong: #1f1f1f;
 
-		--bg: #000000;
-		--bg-secondary: #000000;
-		--bg-tertiary: #000000;
+		--bg: #1f1f1f;
+		--bg-secondary: #1f1f1f;
+		--bg-tertiary: #1f1f1f;
 
-		--border: #000000;
-		--border-strong: #000000;
+		--border: #1f1f1f;
+		--border-strong: #1f1f1f;
 
-		--high-contrast: #000;
-		--mid-contrast: #000;
-		--low-contrast: #000;
+		--high-contrast: #1f1f1f;
+		--mid-contrast: #1f1f1f;
+		--low-contrast: #1f1f1f;
 
-		--success-bg: #000;
-		--success-content: #000;
-		--warning-bg: #000;
-		--warning-content: #000;
-		--error-bg: #000;
-		--error-content: #000;
+		--success-bg: #1f1f1f;
+		--success-content: #1f1f1f;
+		--warning-bg: #1f1f1f;
+		--warning-content: #1f1f1f;
+		--error-bg: #1f1f1f;
+		--error-content: #1f1f1f;
 
 		/* SPACING ========== */
 		--space-0: 0rem; /* 0px - Small  */
@@ -53,10 +53,11 @@
 		--space-400: 2rem; /* 32px - Large */
 		--space-500: 2.5rem; /* 40px */
 		--space-600: 3rem; /* 48px */
-		--space-800: 4rem; /* 64px */
-		--space-1000: 5rem; /* 80px */
+		--space-700: 4rem; /* 64px */
+		--space-800: 5rem; /* 80px */
 
 		/* ELEMENTS ========== */
+		--br-sm: 8px;
 		--br: 20px;
 		--inner-br: calc(var(--outer-radius) - var(--padding));
 		--button-padding: 4px 8px;

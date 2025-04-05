@@ -4,7 +4,7 @@
 
 <style lang="postcss">
 	.header {
-		padding-block: 20px;
+		padding-block: 16px;
 	}
 
 	.content {

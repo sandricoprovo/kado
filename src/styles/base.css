@@ -86,7 +86,7 @@
 
 	* {
 		font-family: var(--font-family, 'Lora');
-		font-variation-settings: var(--fw-regular, 'wght' 400);
+		font-variation-settings: var(--fw-400, 'wght' 400);
 		color: var(--fg);
 	}
 

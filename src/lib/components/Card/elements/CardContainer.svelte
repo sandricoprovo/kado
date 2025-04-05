@@ -12,25 +12,23 @@
 </script>
 
 <article class="card">
-	{#if title}
-		{@render title()}
-	{/if}
+	{@render title?.()}
 	<div class={`container ${isEmpty ? 'container--empty' : ''}`}>
 		{@render content()}
 	</div>
-	{#if title}
-		{@render reverseTitle?.()}
-	{/if}
+	{@render reverseTitle?.()}
 </article>
 
 <style lang="postcss">
 	.card {
-		border: 2px solid green;
+		border: 2px solid var(--fg);
+		border-radius: var(--br);
 		width: clamp(280px, 100vw, 340px);
 		height: 500px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: var(--space-100);
 	}
 
 	.container {
@@ -40,7 +38,7 @@
 		grid-template-columns: repeat(auto-fit, 30px);
 		width: 144px; /* (30px * 4) + (8px * 3 gaps) */
 		grid-auto-rows: min-content;
-		gap: 8px;
+		gap: var(--space-500);
 	}
 
 	.container--empty {
