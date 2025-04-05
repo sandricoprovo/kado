@@ -48,7 +48,7 @@
 					{/if}
 				</Typography>
 			</section>
-			<Card rank={game.currentCard.rank} suit={game.currentCard.suit} />
+			<Card {...game.currentCard} />
 		{:else}
 			<section>
 				<Typography as="h2" weight="bold">Welcome!</Typography>

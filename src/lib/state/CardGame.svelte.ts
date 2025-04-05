@@ -1,4 +1,4 @@
-import type { Card, Deck } from '$lib/server/services/CardsService/types';
+import type { Card, Deck } from '$lib/types';
 
 export class CardGame {
 	public deck = $state<Deck>([]);

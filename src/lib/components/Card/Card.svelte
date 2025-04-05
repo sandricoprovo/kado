@@ -1,38 +1,28 @@
 <script lang="ts">
-	import type { Ranks, Suits } from '$lib/types';
+	import type { Card } from '$lib/types';
 	import Typography from '../common/Typography.svelte';
-	import CardContainer from './elements/CardContainer.svelte';
+	import { CardContainer, SuitIcon } from './elements';
 	import { getIconsNumber } from './helpers/getIconsNumber';
 
-	interface CardProps {
-		suit: Suits;
-		rank: Ranks;
-	}
-
-	const { suit, rank }: CardProps = $props();
+	const { suit, rank, label }: Card = $props();
+	const iconsNumber = $derived(getIconsNumber(rank));
 </script>
 
 <CardContainer>
 	{#snippet title()}
-		<Typography>{rank} of {suit}</Typography>
+		<Typography>{rank} of {label}</Typography>
 	{/snippet}
 	{#snippet content()}
-		{#each Array.from({ length: getIconsNumber(rank) }) as item}
-			<div class="emblem">{item}</div>
+		{#each { length: iconsNumber }}
+			<SuitIcon {suit} />
 		{/each}
 	{/snippet}
 	{#snippet reverseTitle()}
-		<Typography classes="card--rotate">{rank} of {suit}</Typography>
+		<Typography classes="card--rotate">{rank} of {label}</Typography>
 	{/snippet}
 </CardContainer>
 
 <style lang="postcss">
-	.emblem {
-		border-radius: 100%;
-		height: 30px;
-		background-color: black;
-	}
-
 	:global(.card--rotate) {
 		rotate: 180deg;
 	}

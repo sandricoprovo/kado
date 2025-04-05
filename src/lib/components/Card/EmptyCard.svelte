@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CardContainer from './elements/CardContainer.svelte';
+	import { CardContainer } from './elements';
 </script>
 
 <CardContainer isEmpty>

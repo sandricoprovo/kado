@@ -35,10 +35,13 @@
 		flex: 1;
 		display: grid;
 		place-content: center;
-		grid-template-columns: repeat(auto-fit, 30px);
-		width: 144px; /* (30px * 4) + (8px * 3 gaps) */
-		grid-auto-rows: min-content;
+		grid-template-columns: repeat(auto-fit, 50px);
+		width: 300px;
 		gap: var(--space-500);
+	}
+
+	:global(.container > *:last-child:nth-child(3n-2)) {
+		grid-column: 2;
 	}
 
 	.container--empty {
