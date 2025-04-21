@@ -16,6 +16,7 @@
 		medium: '500',
 		bold: '600'
 	};
+
 	const classList = classes ? ` ${classes}` : '';
 </script>
 
