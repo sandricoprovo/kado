@@ -1,3 +1,4 @@
+<!-- Icon SVG code sourced from https://lucide.dev/. Refer to license at /THIRD-PART-NOTICES.md -->
 <script lang="ts">
 	import type { Suits } from '$lib/types';
 

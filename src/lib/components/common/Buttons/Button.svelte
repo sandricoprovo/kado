@@ -36,7 +36,7 @@
 		--minWidth: 120px;
 		--maxWidth: 160px;
 
-		:global(*) {
+		:global(& *) {
 			--fl: -1;
 			font-variation-settings: var(--fw-600);
 		}

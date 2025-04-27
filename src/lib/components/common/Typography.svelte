@@ -2,7 +2,7 @@
 	import type { Children } from '$lib/types';
 
 	type TypographyProps = {
-		as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+		as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
 		weight?: 'regular' | 'medium' | 'bold';
 		color?: string;
 		classes?: string;

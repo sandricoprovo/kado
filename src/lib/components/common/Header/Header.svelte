@@ -12,7 +12,6 @@
 
 <style lang="postcss">
 	.header {
-		padding-block: 16px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;

@@ -18,6 +18,8 @@
 	h5,
 	h6,
 	p,
+	a,
+	span,
 	li,
 	.fluid,
 	textarea,
@@ -88,13 +90,5 @@
 		font-family: var(--font-family, 'Lora');
 		font-variation-settings: var(--fw-400, 'wght' 400);
 		color: var(--fg);
-	}
-
-	a,
-	span {
-		font-size: inherit;
-		color: inherit;
-		font-weight: inherit;
-		font-variation-settings: inherit;
 	}
 }
