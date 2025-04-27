@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { RANKS, SUITS, CARD_COUNT } from './constants';
 import { service } from './CardsService';
+import type { Deck } from '$lib/types';
 
 describe('CardsService', () => {
 	describe('init', () => {
@@ -51,7 +52,7 @@ describe('CardsService', () => {
 	});
 
 	describe('shuffleDeck', () => {
-		it('should return success tuple if valid deck', () => {
+		it('should throw error if no deck is passed to shuffle', () => {
 			const cardsService = service.init(4, RANKS, SUITS);
 
 			// @ts-expect-error testing error case
@@ -60,16 +61,15 @@ describe('CardsService', () => {
 
 		it('should return success tuple if valid deck', () => {
 			const cardsService = service.init(4, RANKS, SUITS);
-			const [deck, deckErr] = cardsService.generateDeck();
+			const deck: Deck = [
+				{ suit: 'spades', colorScheme: 'dark', rank: '2', label: 'Spades' },
+				{ suit: 'spades', colorScheme: 'dark', rank: '3', label: 'Spades' },
+				{ suit: 'spades', colorScheme: 'dark', rank: '4', label: 'Spades' },
+				{ suit: 'spades', colorScheme: 'dark', rank: '5', label: 'Spades' }
+			];
 
-			expect(deck).toBeDefined();
-			expect(deckErr).toBeNull();
-
-			// @ts-expect-error testing error case
 			const shuffledDeck = cardsService.shuffleDeck(deck);
-
-			// @ts-expect-error testing error case
-			expect(deck[0]).not.toEqual(shuffledDeck[0]);
+			expect(JSON.stringify(deck)).not.toEqual(JSON.stringify(shuffledDeck));
 		});
 	});
 });
