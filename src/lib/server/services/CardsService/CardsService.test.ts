@@ -33,7 +33,7 @@ describe('CardsService', () => {
 			const card = cardsService.generateCardData(0);
 
 			expect(card).toEqual({
-				suit: 'Spades',
+				suit: 'spades',
 				colorScheme: 'dark',
 				rank: '2',
 				label: 'Spades'

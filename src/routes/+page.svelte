@@ -51,7 +51,7 @@
 			<Card {...game.currentCard} />
 		{:else}
 			<section>
-				<Typography as="h2" weight="bold">Welcome!</Typography>
+				<Typography as="h2" weight="bold" testId="title">Welcome!</Typography>
 				<Typography>Choose an ordered or shuffled deck to begin.</Typography>
 			</section>
 			<EmptyCard />
