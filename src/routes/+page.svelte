@@ -28,7 +28,6 @@
 	};
 
 	function handleGameReset() {
-		// TODO: confirm reset
 		game.reset();
 	}
 </script>
