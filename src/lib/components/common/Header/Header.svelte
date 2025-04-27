@@ -1,10 +1,11 @@
 <script>
 	import Button from '../Buttons/Button.svelte';
 	import Typography from '../Typography.svelte';
+	import { APP_NAME } from '$lib/const';
 </script>
 
 <header class="header">
-	<p class="content">Shuffle up</p>
+	<p class="content">{APP_NAME}</p>
 	<Button size="small" class="button">
 		<Typography>Buy Me a Coffee</Typography>
 	</Button>
