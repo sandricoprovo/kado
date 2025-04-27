@@ -41,10 +41,10 @@
 					{game.currentCard.rank} of {game.currentCard.label}
 				</Typography>
 				<Typography>
-					{#if game.cardsRemaining >= 1}
-						Cards Remaining: {game.cardsRemaining}
+					{#if game.remainingCount >= 1}
+						Drawn: {game.drawnCount} / Remaining: {game.remainingCount}
 					{:else}
-						No cards Left / {game.cardsRemaining} Remaining
+						No cards Left / {game.remainingCount} Remaining
 					{/if}
 				</Typography>
 			</section>
@@ -64,16 +64,13 @@
 		{:else}
 			<form class="form" method="POST" use:enhance={handleDeckFormSubmit}>
 				<ButtonGroup>
-					<Button formaction="?/getDeck" type="submit">Start New Game</Button>
+					<Button formaction="?/getDeck" type="submit">New Game</Button>
 					<Button formaction="?/getDeck&shuffled=true" type="submit">Shuffle & Start</Button>
 				</ButtonGroup>
 			</form>
 		{/if}
 	</section>
-	<DrawnTable
-		title={`# Cards Drawn: ${game?.cardsDrawn?.length ?? 0}`}
-		drawnCards={game.cardsDrawn}
-	/>
+	<DrawnTable title={`# Cards Drawn: ${game?.drawn?.length ?? 0}`} drawnCards={game.drawn} />
 </main>
 
 <style lang="postcss">
@@ -88,7 +85,7 @@
 		grid-template-columns: var(--cols);
 		justify-content: center;
 		gap: var(--gap);
-		width: 80vw;
+		width: 90vw;
 		margin-bottom: var(--gap);
 
 		@media screen and (width > 820px) {
@@ -105,6 +102,8 @@
 		flex-direction: column;
 		align-items: center;
 		gap: var(--gap);
+		container-name: cardArea;
+		container-type: inline-size;
 
 		@media screen and (width > 820px) {
 			& {

@@ -22,5 +22,6 @@
 		grid-template-columns: 1fr;
 		grid-template-rows: auto 1fr auto;
 		justify-content: center;
+		gap: var(--space-300);
 	}
 </style>

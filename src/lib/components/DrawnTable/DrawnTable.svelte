@@ -10,13 +10,12 @@
 	let { title, drawnCards }: DrawnTableProps = $props();
 </script>
 
-<!-- TODO: convert this to a div based table? -->
 <article>
 	<figure class="table-container">
 		<table>
 			<thead>
 				<TableRow>
-					<TableHead class="h5 fvs-600 table__header sticky" colspan={2}>
+					<TableHead class="h5 fvs-600 table__header sticky" colspan={3}>
 						{title}
 					</TableHead>
 				</TableRow>
@@ -25,6 +24,7 @@
 				{#each drawnCards as card}
 					<TableRow>
 						<td class="table__data">{card.rank}</td>
+						<td class="table__data">of</td>
 						<td class="table__data">{card.label}</td>
 					</TableRow>
 				{/each}
@@ -38,7 +38,8 @@
 		min-width: 200px;
 		max-width: 400px;
 		width: 100%;
-		max-height: 300px;
+		max-height: 500px;
+		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -48,7 +49,7 @@
 	.table-container {
 		width: 100%;
 		min-width: 320px;
-		max-height: 250px;
+		max-height: 450px;
 		overflow-y: auto;
 		text-align: center;
 		margin: 0 auto;
@@ -66,7 +67,7 @@
 
 		& > th,
 		& > td {
-			padding: 8px;
+			padding: 0 8px 8px 8px;
 			text-align: center;
 			border-bottom: 1px solid #ddd;
 		}
@@ -78,7 +79,8 @@
 	}
 
 	.table__data {
-		width: 50%;
+		width: calc(100% / 3);
+		font-style: italic;
 	}
 
 	:global(.table-container tr) {

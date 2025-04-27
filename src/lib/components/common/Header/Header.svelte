@@ -12,10 +12,10 @@
 
 <style lang="postcss">
 	.header {
+		padding: var(--space-200) var(--space-200) 0 var(--space-200);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--space-200) var(--space-300);
 	}
 
 	.content {

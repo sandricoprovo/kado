@@ -22,7 +22,7 @@
 
 <style lang="postcss">
 	.button {
-		--minWidth: 180px;
+		--minWidth: 140px;
 		--maxWidth: 240px;
 
 		border: none;

@@ -24,5 +24,6 @@
 
 	:global(.button__group > button) {
 		flex: 1;
+		align-self: stretch;
 	}
 </style>

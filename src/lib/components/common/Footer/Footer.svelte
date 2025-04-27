@@ -15,13 +15,12 @@
 			font-variation-settings: var(--fw-500);
 		}
 
-		margin-block-start: var(--space-400);
-		padding: var(--space-200) var(--space-300);
+		padding: 0 var(--space-300) var(--space-200) var(--space-300);
 
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		gap: var(--space-400);
+		gap: var(--space-300);
 	}
 </style>

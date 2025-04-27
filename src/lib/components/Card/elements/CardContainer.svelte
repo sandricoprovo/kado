@@ -21,14 +21,20 @@
 
 <style lang="postcss">
 	.card {
+		--width: 400px;
+
 		border: 2px solid var(--fg);
 		border-radius: var(--br);
-		width: clamp(280px, 100vw, 340px);
-		height: 500px;
+		width: clamp(280px, 90vw, var(--width));
+		height: 54svh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding: var(--space-100);
+
+		@container cardArea (min-width: 500px) {
+			height: 60svh;
+		}
 	}
 
 	.container {
