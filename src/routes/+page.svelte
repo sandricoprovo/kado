@@ -70,7 +70,10 @@
 			</form>
 		{/if}
 	</section>
-	<DrawnTable title={`# Cards Drawn: ${game?.drawn?.length ?? 0}`} drawnCards={game.drawn} />
+	<DrawnTable
+		title={`# Cards Drawn: ${game?.drawnCards?.length ?? 0}`}
+		drawnCards={game.drawnCards}
+	/>
 </main>
 
 <style lang="postcss">

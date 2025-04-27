@@ -2,13 +2,13 @@ import type { Card, Deck } from '$lib/types';
 
 export class CardGame {
 	public deck = $state<Deck>([]);
-	public drawn = $state<Card[]>([]);
+	public drawnCards = $state<Card[]>([]);
 	public hasCards = $derived(this.deck.length > 0);
 	public currentCard = $state<Card | null>(null);
-	public drawnCount = $derived(this.drawn.length);
+	public drawnCount = $derived(this.drawnCards.length);
 	public remainingCount = $derived(this.deck.length);
-	public isDirty = $derived(this.hasCards || this.drawn.length > 0);
-	public hasDrawnAllCards = $derived(this.deck.length === 0 && this.drawn.length > 0);
+	public isDirty = $derived(this.hasCards || this.drawnCards.length > 0);
+	public hasDrawnAllCards = $derived(this.deck.length === 0 && this.drawnCards.length > 0);
 
 	constructor() {}
 
@@ -19,7 +19,7 @@ export class CardGame {
 		const drawnCard = this.deck.shift();
 		if (!drawnCard) return;
 
-		this.drawn.unshift(drawnCard);
+		this.drawnCards.unshift(drawnCard);
 		this.currentCard = drawnCard;
 	};
 
@@ -31,14 +31,14 @@ export class CardGame {
 		const drawnCard = this.deck.shift();
 
 		if (!drawnCard) return;
-		this.drawn.unshift(drawnCard);
+		this.drawnCards.unshift(drawnCard);
 
 		this.currentCard = drawnCard;
 	};
 
 	reset = () => {
 		this.deck = [];
-		this.drawn = [];
+		this.drawnCards = [];
 		this.currentCard = null;
 	};
 }
