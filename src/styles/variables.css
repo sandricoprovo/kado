@@ -1,0 +1,85 @@
+@layer variables {
+	:root {
+		/* Typography */
+		--fontFallback: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+			Cantarell, 'Open Sans', 'Helvetica Neue';
+		--fontFamily: 'Lora', var(--fontFallback), serif;
+
+		/* Weights */
+		--fw-400: 'wght' 400;
+		--fw-500: 'wght' 500;
+		--fw-600: 'wght' 600;
+		--fw-700: 'wght' 700;
+
+		/* COLOURS ========== */
+		--primary: #1f1f1f;
+		--accent: #1f1f1f;
+
+		--fg: #1f1f1f;
+		--fg-disabled: #1f1f1f;
+		--fg-subtle: #1f1f1f;
+		--fg-normal: #1f1f1f;
+		--fg-muted: #1f1f1f;
+		--fg-strong: #1f1f1f;
+
+		--bg: #1f1f1f;
+		--bg-secondary: #1f1f1f;
+		--bg-tertiary: #1f1f1f;
+
+		--border: #1f1f1f;
+		--border-strong: #1f1f1f;
+
+		--high-contrast: #1f1f1f;
+		--mid-contrast: #1f1f1f;
+		--low-contrast: #1f1f1f;
+
+		--success-bg: #1f1f1f;
+		--success-content: #1f1f1f;
+		--warning-bg: #1f1f1f;
+		--warning-content: #1f1f1f;
+		--error-bg: #1f1f1f;
+		--error-content: #1f1f1f;
+
+		/* SPACING ========== */
+		--space-0: 0rem; /* 0px - Small  */
+		--space-025: 0.125rem; /* 2px */
+		--space-050: 0.25rem; /* 4px */
+		--space-075: 0.375rem; /* 6px */
+		--space-100: 0.5rem; /* 8px */
+		--space-150: 0.75rem; /* 12px - Medium */
+		--space-200: 1rem; /* 16px */
+		--space-250: 1.25rem; /* 20px */
+		--space-300: 1.5rem; /* 24px */
+		--space-400: 2rem; /* 32px - Large */
+		--space-500: 2.5rem; /* 40px */
+		--space-600: 3rem; /* 48px */
+		--space-700: 4rem; /* 64px */
+		--space-800: 5rem; /* 80px */
+
+		/* ELEMENTS ========== */
+		--br-sm: 8px;
+		--br: 20px;
+		--inner-br: calc(var(--outer-radius) - var(--padding));
+		--button-padding: 4px 8px;
+		--button-height-sm: 28px;
+		--button-height-lg: 60px;
+
+		/* SHADOWS ========== */
+		--shadow-color: 0deg 0% 80%;
+		--shadow-low: 0px 0.3px 0.5px hsl(var(--shadow-color) / 0),
+			0px 0.5px 0.8px hsl(var(--shadow-color) / 0.11),
+			0px 0.9px 1.4px hsl(var(--shadow-color) / 0.22);
+		--shadow-medium: 0px 0.3px 0.5px hsl(var(--shadow-color) / 0),
+			0px 1.2px 1.8px hsl(var(--shadow-color) / 0.09),
+			0px 2.3px 3.5px hsl(var(--shadow-color) / 0.18),
+			0px 4.5px 6.8px hsl(var(--shadow-color) / 0.26);
+		--shadow-high: 0px 0.3px 0.5px hsl(var(--shadow-color) / 0),
+			0px 1.7px 2.6px hsl(var(--shadow-color) / 0.04),
+			0px 2.9px 4.4px hsl(var(--shadow-color) / 0.08),
+			0px 4.2px 6.3px hsl(var(--shadow-color) / 0.12),
+			0px 5.8px 8.7px hsl(var(--shadow-color) / 0.16),
+			-0.1px 8px 12px hsl(var(--shadow-color) / 0.2),
+			-0.1px 11px 16.5px hsl(var(--shadow-color) / 0.24),
+			-0.1px 15.1px 22.7px hsl(var(--shadow-color) / 0.28);
+	}
+}

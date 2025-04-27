@@ -1,8 +1,7 @@
-import type { ErrorTuple, SuccessTuple } from '$lib/types';
-import type { Card, Deck, Suit } from './types';
+import type { ErrorTuple, SuccessTuple, Card, Deck, Suit } from '$lib/types';
 import { CARD_COUNT, RANKS, SUITS } from './constants';
 
-class CardsService {
+class Service {
 	private cardCount: number;
 	private ranks: string[];
 	private suits: Suit[];
@@ -13,11 +12,11 @@ class CardsService {
 		this.suits = suits;
 	}
 
-	public static init(count: number, ranks: string[], suits: Suit[]): CardsService {
+	public static init(count: number, ranks: string[], suits: Suit[]): Service {
 		if (!count || !ranks || !suits) {
 			throw Error('Error: Could not create a CardsService instance due to missing argument.');
 		}
-		return new CardsService(count, ranks, suits);
+		return new Service(count, ranks, suits);
 	}
 
 	generateCardData(index: number): Card {
@@ -30,7 +29,7 @@ class CardsService {
 		return {
 			suit,
 			colorScheme,
-			rank: this.ranks[index % 13],
+			rank: this.ranks[index % 13] as Card['rank'],
 			label: `${suit.charAt(0).toUpperCase()}${suit.slice(1)}`
 		};
 	}
@@ -52,9 +51,11 @@ class CardsService {
 
 		const newDeck = [...deck];
 
-		for (let i = newDeck.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[newDeck[i], newDeck[j]] = [newDeck[j], newDeck[i]];
+		while (JSON.stringify(newDeck) === JSON.stringify(deck)) {
+			for (let i = newDeck.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[newDeck[i], newDeck[j]] = [newDeck[j], newDeck[i]];
+			}
 		}
 
 		return newDeck;
@@ -63,5 +64,5 @@ class CardsService {
 	// TODO: create a validate deck method
 }
 
-export default CardsService.init(CARD_COUNT, RANKS, SUITS);
-export { CardsService as service };
+export default Service.init(CARD_COUNT, RANKS, SUITS);
+export { Service as service };

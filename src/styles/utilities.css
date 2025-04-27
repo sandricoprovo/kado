@@ -1,0 +1,53 @@
+@layer utilities {
+	/* Font Size */
+	/* This makes containers, with container queries use a cqi unit instead of vi */
+	.fluid-text-container {
+		container-type: inline-size;
+		--variable-unit: 100cqi;
+	}
+	.fs-xs {
+		--fl: -1;
+	}
+	.fs-base {
+		--fl: 0;
+	}
+	.fs-s {
+		--fl: 1;
+	}
+	.fs-m {
+		--fl: 2;
+	}
+	.fs-l {
+		--fl: 3;
+	}
+	.fs-xl {
+		--fl: 4;
+	}
+	.fs-xxl {
+		--fl: 5;
+	}
+	.fs-xxxl {
+		--fl: 6;
+	}
+
+	/* Font weights */
+	.fvs-400 {
+		font-variation-settings: var(--fw-400);
+	}
+	.fvs-500 {
+		font-variation-settings: var(--fw-500);
+	}
+	.fvs-600 {
+		font-variation-settings: var(--fw-600);
+	}
+	.fvs-700 {
+		font-variation-settings: var(--fw-700);
+	}
+
+	/* Layout */
+	.sticky {
+		position: sticky;
+		top: 0;
+		background: inherit;
+	}
+}
