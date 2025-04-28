@@ -21,7 +21,7 @@
 				</TableRow>
 			</thead>
 			<tbody>
-				{#each drawnCards as card}
+				{#each drawnCards as card (`${card.rank}-${card.label}`)}
 					<TableRow>
 						<td class="table__data">{card.rank}</td>
 						<td class="table__data">of</td>
