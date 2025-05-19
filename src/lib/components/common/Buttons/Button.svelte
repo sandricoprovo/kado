@@ -2,7 +2,7 @@
 	import type { Children } from '$lib/types';
 	import type { HTMLButtonAttributes } from 'svelte/elements';
 
-	interface ButtonProps extends HTMLButtonAttributes {
+	export interface ButtonProps extends HTMLButtonAttributes {
 		children: Children;
 		size?: 'small' | 'base' | 'large';
 	}
@@ -22,18 +22,22 @@
 
 <style lang="postcss">
 	.button {
-		--minWidth: 140px;
 		--maxWidth: 240px;
 
 		border: none;
-		min-width: var(--minWidth);
 		max-width: var(--maxWidth);
 		border-radius: var(--br-sm);
 		cursor: pointer;
+		width: 100%;
+
+		&:disabled {
+			cursor: not-allowed;
+			pointer-events: none;
+			color: lightgray;
+		}
 	}
 
 	.button--sm {
-		--minWidth: 120px;
 		--maxWidth: 160px;
 
 		:global(& *) {

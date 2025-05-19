@@ -6,6 +6,14 @@
 	const { children } = $props();
 </script>
 
+<svelte:head>
+	<script type="module">
+		if (!('anchorName' in document.documentElement.style)) {
+			import('https://unpkg.com/@oddbird/css-anchor-positioning');
+		}
+	</script>
+</svelte:head>
+
 <div class="layout">
 	<Header />
 	{@render children?.()}
