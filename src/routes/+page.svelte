@@ -8,6 +8,7 @@
 	import EmptyCard from '$lib/components/Card/EmptyCard.svelte';
 	import Typography from '$lib/components/common/Typography.svelte';
 	import ButtonGroup from '$lib/components/common/Buttons/ButtonGroup.svelte';
+	import ButtonWithConfirmation from '$lib/components/common/Buttons/ButtonWithConfirmation.svelte';
 
 	const game = new CardGame();
 
@@ -27,7 +28,7 @@
 		};
 	};
 
-	function handleGameReset() {
+	function confirmReset() {
 		game.reset();
 	}
 </script>
@@ -43,7 +44,7 @@
 					{#if game.remainingCount >= 1}
 						Drawn: {game.drawnCount} / Remaining: {game.remainingCount}
 					{:else}
-						No cards Left / {game.remainingCount} Remaining
+						{game.remainingCount} Cards Remaining
 					{/if}
 				</Typography>
 			</section>
@@ -57,13 +58,19 @@
 		{/if}
 		{#if game.isDirty}
 			<ButtonGroup>
-				<Button onclick={handleGameReset}>New Game</Button>
-				<Button onclick={game.drawCard}>Draw Card</Button>
+				<ButtonWithConfirmation
+					label="New Game"
+					title="Are you sure you want to reset the game?"
+					buttons={[{ label: 'Yes', onclick: confirmReset }, { label: 'Cancel' }]}
+				/>
+				<Button disabled={game.hasDrawnAllCards} onclick={game.drawCard}>
+					{game.remainingCount >= 1 ? 'Draw Card' : 'No cards Left'}
+				</Button>
 			</ButtonGroup>
 		{:else}
 			<form class="form" method="POST" use:enhance={handleDeckFormSubmit}>
 				<ButtonGroup>
-					<Button formaction="?/getDeck" type="submit">New Game</Button>
+					<Button formaction="?/getDeck" type="submit">Start</Button>
 					<Button formaction="?/getDeck&shuffled=true" type="submit">Shuffle & Start</Button>
 				</ButtonGroup>
 			</form>

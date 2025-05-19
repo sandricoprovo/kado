@@ -9,9 +9,10 @@
     ╚═════╝╚══════╝╚══════╝    ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝
 */
 
-@layer reset, variables, base, utilities;
+@layer reset, variables, base, utilities, animations;
 
 @import './reset.css';
 @import './variables.css';
 @import './base.css';
 @import './utilities.css';
+@import './animations.css';

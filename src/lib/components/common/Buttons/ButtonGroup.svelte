@@ -19,10 +19,10 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
-		gap: var(--space-200);
+		gap: var(--space-100);
 	}
 
-	:global(.button__group > button) {
+	:global(.button__group > button, .button__group > div) {
 		flex: 1;
 		align-self: stretch;
 	}
